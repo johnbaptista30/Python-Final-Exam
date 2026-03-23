@@ -1,0 +1,33 @@
+students = [
+    {"name": "Kurt", "score": 15}, {"name": "Carl", "score": 23},
+    {"name": "JK", "score": 22}, {"name": "James", "score": 30},
+    {"name": "Kelvin", "score": 9}, {"name": "Haze", "score": 18},
+    {"name": "Gaze", "score": 10}, {"name": "Soap", "score": 20},
+    {"name": "Price", "score": 28}, {"name": "McQueen", "score": 26},
+    {"name": "Bascreveil", "score": 25}, {"name": "Luna", "score": 16},
+    {"name": "Ian", "score": 21}, {"name": "Joel", "score": 18}
+]
+
+
+try:
+    target_score = int(input("Enter a score: "))
+except ValueError:
+    print("Please enter a valid number.")
+    exit()
+
+print(f"\nStudent with the same and lower score than {target_score}")
+
+
+filtered_scores = []
+for student in students:
+    if student["score"] <= target_score:
+        print(f"Name: {student['name']} Score: {student['score']}")
+        filtered_scores.append(student["score"])
+
+
+if filtered_scores:
+    average = sum(filtered_scores) / len(filtered_scores)
+    
+    print(f"there average score: {average:.2f}")
+else:
+    print("No students found with that score or lower.")
