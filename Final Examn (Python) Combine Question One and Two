@@ -1,0 +1,53 @@
+def main():
+    
+    students = [
+        {"name": "Kurt", "score": 15}, {"name": "Carl", "score": 23},
+        {"name": "JK", "score": 22}, {"name": "James", "score": 30},
+        {"name": "Kelvin", "score": 9}, {"name": "Haze", "score": 18},
+        {"name": "Gaze", "score": 10}, {"name": "Soap", "score": 20},
+        {"name": "Price", "score": 28}, {"name": "McQueen", "score": 26},
+        {"name": "Bascreveil", "score": 25}, {"name": "Luna", "score": 16},
+        {"name": "Ian", "score": 21}, {"name": "Joel", "score": 18}
+    ]
+
+    print("--- Student Score Filter ---")
+    try:
+        user_score = int(input("Enter a score: "))
+    except ValueError:
+        print("Please enter a valid number.")
+        return
+
+    
+    filtered_students = [s for s in students if s["score"] <= user_score]
+
+    print(f"\nStudent with the same and lower score than {user_score}")
+    
+    total_score = 0
+    for student in filtered_students:
+        print(f"Name: {student['name']} Score: {student['score']}")
+        total_score += student['score']
+
+    if filtered_students:
+        average = total_score / len(filtered_students)
+        print(f"there average score: {average:.2f}")
+    else:
+        print("No students found with that score range.")
+
+    print("\n" + "-"*30 + "\n")
+
+    
+    shuffle_list = [5, 7, 10, 1, 2, 4, 9, 8, 3, 6]
+    print(f"Shuffle list: {shuffle_list}")
+
+    
+    n = len(shuffle_list)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if shuffle_list[j] > shuffle_list[j + 1]:
+                
+                shuffle_list[j], shuffle_list[j + 1] = shuffle_list[j + 1], shuffle_list[j]
+
+    print(f"Sorted list: {shuffle_list}")
+
+if __name__ == "__main__":
+    main()
